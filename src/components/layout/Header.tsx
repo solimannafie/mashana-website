@@ -44,10 +44,14 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link 
           to="/" 
-          className="relative text-2xl font-serif tracking-tight font-semibold animate-fade-in"
+          className="relative animate-fade-in"
           onClick={() => setIsMenuOpen(false)}
         >
-          Artisan<span className="text-primary">Bake</span>
+          <img 
+            src="/logo.png" 
+            alt="مشنة عيش" 
+            className="h-10 md:h-12" 
+          />
         </Link>
         
         <nav className="hidden md:flex items-center space-x-8">
