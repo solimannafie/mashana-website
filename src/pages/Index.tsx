@@ -45,7 +45,7 @@ const Index = () => {
                 Handcrafted with passion
               </span>
               <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-tight text-white mb-6">
-                Artisanal Baked Goods For Every Occasion
+                مشنة عيش - Artisanal Baked Goods
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
                 Experience the difference of freshly baked goods made with traditional methods and premium ingredients.
@@ -140,35 +140,35 @@ const Index = () => {
         </section>
       )}
 
-      {/* Call to Action */}
+      {/* FAQs Section (Replacing the newsletter section) */}
       <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-medium mb-6 max-w-2xl mx-auto">
-            Join our community of bread lovers
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-4xl font-serif font-medium mb-10 text-center max-w-2xl mx-auto">
+            Frequently Asked Questions
           </h2>
-          <p className="mb-8 text-primary-foreground/80 max-w-xl mx-auto">
-            Subscribe to our newsletter for exclusive recipes, special offers, and early access to seasonal specialties.
-          </p>
-          <form 
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            onSubmit={(e) => {
-              e.preventDefault();
-              // Handle form submission
-            }}
-          >
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="px-4 py-3 rounded-md focus:outline-none bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/20 flex-1"
-              required
-            />
-            <Button 
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-              type="submit"
-            >
-              Subscribe
-            </Button>
-          </form>
+          
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="bg-primary-foreground/10 rounded-lg p-6 border border-primary-foreground/20">
+              <h3 className="font-medium text-xl mb-2">What are your opening hours?</h3>
+              <p className="text-primary-foreground/80">We're open from 7:00 AM to 7:00 PM Monday through Friday, and 8:00 AM to 6:00 PM on weekends.</p>
+            </div>
+            
+            <div className="bg-primary-foreground/10 rounded-lg p-6 border border-primary-foreground/20">
+              <h3 className="font-medium text-xl mb-2">Do you offer delivery?</h3>
+              <p className="text-primary-foreground/80">Yes, we offer delivery within a 10-mile radius of our bakery for orders over $25. Please place your order at least 24 hours in advance.</p>
+            </div>
+            
+            <div className="bg-primary-foreground/10 rounded-lg p-6 border border-primary-foreground/20">
+              <h3 className="font-medium text-xl mb-2">Are your products suitable for people with allergies?</h3>
+              <p className="text-primary-foreground/80">We clearly label all our products with allergen information. For specific dietary requirements, please contact us directly for more information.</p>
+            </div>
+            
+            <div className="text-center mt-8">
+              <Button asChild variant="outline" className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10">
+                <Link to="/faqs">View All FAQs</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>

@@ -8,9 +8,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-secondary py-12 border-t border-border">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-medium">Artisan<span className="text-primary">Bake</span></h3>
+            <h3 className="font-serif text-lg font-medium">مشنة<span className="text-primary">عيش</span></h3>
             <p className="text-sm text-muted-foreground max-w-xs">
               Handcrafted baked goods made with quality ingredients and attention to detail. From our kitchen to your table.
             </p>
@@ -31,22 +31,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
-              <li><Link to="/careers" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Careers</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-medium mb-4 text-sm uppercase tracking-wider">Legal</h4>
-            <ul className="space-y-2">
-              <li><Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link></li>
+              <li><Link to="/faqs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">FAQs</Link></li>
             </ul>
           </div>
         </div>
         
         <div className="mt-12 pt-6 border-t border-border/50 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} ArtisanBake. All rights reserved.
+            &copy; {currentYear} مشنة عيش. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Instagram">
