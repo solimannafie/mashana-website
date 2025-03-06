@@ -48,7 +48,7 @@ const Header: React.FC = () => {
           onClick={() => setIsMenuOpen(false)}
         >
           <img 
-            src="/logo.png" 
+            src="/lovable-uploads/9e142c0f-13d8-4600-a857-ebff59bff6cb.png" 
             alt="مشنة عيش" 
             className="h-10 md:h-12" 
           />
