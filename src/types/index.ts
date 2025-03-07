@@ -14,4 +14,4 @@ export interface CartItemType extends ProductType {
   quantity: number;
 }
 
-export type CategoryType = 'all' | 'bread' | 'pastries' | 'cakes' | 'specialty';
+export type CategoryType = 'all' | 'bread' | 'brioche' | 'focaccia' | 'desserts';

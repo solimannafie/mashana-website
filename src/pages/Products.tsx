@@ -22,12 +22,13 @@ const Products = () => {
     }, 500);
   }, [selectedCategory]);
 
+  // Updated categories based on client requirements
   const categories: { value: CategoryType; label: string }[] = [
     { value: 'all', label: 'All Products' },
-    { value: 'bread', label: 'Breads' },
-    { value: 'pastries', label: 'Pastries' },
-    { value: 'cakes', label: 'Cakes' },
-    { value: 'specialty', label: 'Specialty Items' }
+    { value: 'bread', label: 'Country Bread Loafs' },
+    { value: 'brioche', label: 'Brioche' },
+    { value: 'focaccia', label: 'Focaccia' },
+    { value: 'desserts', label: 'Cookies and Cake' }
   ];
 
   return (
