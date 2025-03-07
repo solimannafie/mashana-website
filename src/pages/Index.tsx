@@ -5,12 +5,11 @@ import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import ProductGrid from '@/components/ProductGrid';
 import { Button } from '@/components/ui/button';
-import { getPopularProducts, getNewProducts } from '@/data/products';
+import { getPopularProducts } from '@/data/products';
 import { ArrowRight } from 'lucide-react';
 
 const Index = () => {
   const popularProducts = getPopularProducts();
-  const newProducts = getNewProducts();
 
   // Page transition effect
   useEffect(() => {
@@ -117,28 +116,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* New Arrivals */}
-      {newProducts.length > 0 && (
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex justify-between items-end mb-10">
-              <div>
-                <span className="text-sm font-medium text-primary mb-2 block">FRESH FROM THE OVEN</span>
-                <h2 className="text-3xl font-serif font-medium">New Arrivals</h2>
-              </div>
-              <Button asChild variant="ghost" className="group">
-                <Link to="/products" className="flex items-center">
-                  View All 
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            </div>
-            
-            <ProductGrid products={newProducts} />
-          </div>
-        </section>
-      )}
 
       {/* FAQs Section (Replacing the newsletter section) */}
       <section className="py-20 bg-primary text-primary-foreground">
