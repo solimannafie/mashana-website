@@ -1,56 +1,109 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { CartItemType, ProductType } from '@/types';
+import { ProductType } from '@/types';
+
+type CartItem = ProductType & {
+  quantity: number;
+};
 
 interface CartStore {
-  items: CartItemType[];
+  items: CartItem[];
+  itemCount: number;
+  subtotal: number;
+  shipping: number;
+  total: number;
+  
+  // Actions
   addItem: (product: ProductType & { quantity?: number }) => void;
-  removeItem: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
+  updateQuantity: (id: string, quantity: number) => void;
+  removeItem: (id: string) => void;
   clearCart: () => void;
+  calculateTotals: () => void;
 }
 
-export const useCartStore = create<CartStore>()(
+const SHIPPING_COST = 5.99;
+
+const useCartStore = create<CartStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       items: [],
+      itemCount: 0,
+      subtotal: 0,
+      shipping: 0,
+      total: 0,
       
-      addItem: (product) => set((state) => {
+      addItem: (product) => {
+        const { items } = get();
         const quantity = product.quantity || 1;
-        const existingItem = state.items.find(item => item.id === product.id);
+        
+        const existingItem = items.find(item => item.id === product.id);
         
         if (existingItem) {
-          return {
-            items: state.items.map(item => 
-              item.id === product.id
-                ? { ...item, quantity: item.quantity + quantity }
-                : item
-            )
+          // Update existing item
+          const updatedItems = items.map(item => 
+            item.id === product.id 
+              ? { ...item, quantity: item.quantity + quantity } 
+              : item
+          );
+          
+          set({ items: updatedItems });
+        } else {
+          // Add new item
+          const newItem = {
+            ...product,
+            quantity
           };
+          
+          set({ items: [...items, newItem] });
         }
         
-        return {
-          items: [...state.items, { ...product, quantity }]
-        };
-      }),
+        get().calculateTotals();
+      },
       
-      removeItem: (productId) => set((state) => ({
-        items: state.items.filter(item => item.id !== productId)
-      })),
+      updateQuantity: (id, quantity) => {
+        if (quantity <= 0) {
+          get().removeItem(id);
+          return;
+        }
+        
+        const { items } = get();
+        const updatedItems = items.map(item => 
+          item.id === id ? { ...item, quantity } : item
+        );
+        
+        set({ items: updatedItems });
+        get().calculateTotals();
+      },
       
-      updateQuantity: (productId, quantity) => set((state) => ({
-        items: state.items.map(item =>
-          item.id === productId
-            ? { ...item, quantity }
-            : item
-        )
-      })),
+      removeItem: (id) => {
+        const { items } = get();
+        const updatedItems = items.filter(item => item.id !== id);
+        
+        set({ items: updatedItems });
+        get().calculateTotals();
+      },
       
-      clearCart: () => set({ items: [] })
+      clearCart: () => {
+        set({ items: [] });
+        get().calculateTotals();
+      },
+      
+      calculateTotals: () => {
+        const { items } = get();
+        
+        const itemCount = items.reduce((total, item) => total + item.quantity, 0);
+        const subtotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
+        const shipping = items.length > 0 ? SHIPPING_COST : 0;
+        const total = subtotal + shipping;
+        
+        set({ itemCount, subtotal, shipping, total });
+      }
     }),
     {
       name: 'cart-storage',
     }
   )
 );
+
+export default useCartStore;
