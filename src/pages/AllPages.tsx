@@ -223,7 +223,7 @@ export const ProductsPage = () => {
 export const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { addItem } = useCartStore();
+  const { addItem } = cartStore();
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState<ProductType | null>(null);
@@ -347,7 +347,7 @@ export const ProductDetailPage = () => {
 
 // Cart Page
 export const CartPage = () => {
-  const { items, clearCart } = useCartStore();
+  const { items, clearCart } = cartStore();
   const navigate = useNavigate();
   
   // Customer information state
