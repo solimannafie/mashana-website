@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
-import useCartStore from '@/stores/cartStore';
+import { useCartStore } from '@/stores/cartStore';
 import { ShoppingCart, Trash2, ArrowRight, MapPin, Phone } from 'lucide-react';
 import CartItem from '@/components/CartItem';
 import { Input } from '@/components/ui/input';

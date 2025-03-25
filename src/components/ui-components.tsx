@@ -7,7 +7,7 @@ import {
   MapPin, Phone, Mail, Clock, Minus, Plus, Trash2,
   Instagram, Facebook, Smartphone 
 } from 'lucide-react';
-import useCartStore from '@/stores/cartStore';
+import { useCartStore } from '@/stores/cartStore';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';

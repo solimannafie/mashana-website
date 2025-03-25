@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import useCartStore from '@/stores/cartStore';
+import { useCartStore } from '@/stores/cartStore';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
 import { toast } from 'sonner';
