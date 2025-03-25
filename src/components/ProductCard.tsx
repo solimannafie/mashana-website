@@ -22,7 +22,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
     e.preventDefault();
     e.stopPropagation();
     
-    addItem(product);
+    addItem({
+      ...product,
+      quantity: 1
+    });
     toast.success(`Added ${product.name} to cart`);
   };
 
