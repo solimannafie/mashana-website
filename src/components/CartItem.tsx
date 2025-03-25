@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCartStore } from '@/stores/cartStore';
+import useCartStore from '@/stores/cartStore';
 import { CartItemType } from '@/types';
 
 interface CartItemProps {

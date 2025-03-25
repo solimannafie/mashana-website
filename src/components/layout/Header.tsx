@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Menu, X } from 'lucide-react';
-import { useCartStore } from '@/stores/cartStore';
+import useCartStore from '@/stores/cartStore';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
