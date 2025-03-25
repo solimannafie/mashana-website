@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { getProductById, getProductsByCategory } from '@/data/products';
 import ProductGrid from '@/components/ProductGrid';
-import { useCartStore } from '@/stores/cartStore';
+import useCartStore from '@/stores/cartStore';
 import { ProductType } from '@/types';
 
 const ProductDetail = () => {

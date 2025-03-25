@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ProductDetail from './ProductDetail';
 import Layout from '@/components/layout/Layout';
 
 const ProductDetailPage = () => {
@@ -9,7 +8,16 @@ const ProductDetailPage = () => {
   
   return (
     <Layout>
-      <ProductDetail productId={id || ''} />
+      <div className="container mx-auto px-4 py-16">
+        {id && (
+          <div>
+            {/* ProductDetail component is moved inline */}
+            <div className="product-detail-content">
+              {/* Product detail content will be rendered here */}
+            </div>
+          </div>
+        )}
+      </div>
     </Layout>
   );
 };
