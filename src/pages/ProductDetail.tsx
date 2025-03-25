@@ -1,12 +1,16 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ProductDetail from './ProductDetail';
 
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   
+  // Render the actual product detail component
   return (
-    <ProductDetail id={id || ''} />
+    <div>
+      <h1>Product Detail Page</h1>
+      <p>Product ID: {id}</p>
+    </div>
   );
 };
 

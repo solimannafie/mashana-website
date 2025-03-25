@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -5,7 +6,7 @@ import CartItem from '@/components/CartItem';
 import { Button } from '@/components/ui/button';
 import useCartStore from '@/stores/cartStore';
 import { Separator } from '@/components/ui/separator';
-import { Layout } from '@/components/layout/Layout';
+import Layout from '@/components/layout/Layout';
 
 const CartPage: React.FC = () => {
   const { items, clearCart } = useCartStore();

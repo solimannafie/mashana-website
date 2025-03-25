@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/accordion";
 import { CategoryType, ProductType } from '@/types';
 import { getProductsByCategory, getPopularProducts, getProductById } from '@/data/products';
-import { useCartStore } from '@/stores/cartStore';
+import useCartStore from '@/stores/cartStore';
 import { ArrowRight, ShoppingCart, Trash2, MapPin, Phone, Mail, Clock, Minus, Plus } from 'lucide-react';
 
 // Home Page
