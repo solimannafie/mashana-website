@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -16,7 +17,7 @@ import {
 } from "@/components/ui/accordion";
 import { CategoryType, ProductType } from '@/types';
 import { getProductsByCategory, getPopularProducts, getProductById } from '@/data/products';
-import useCartStore from '@/stores/cartStore';
+import cartStore from '@/stores/cartStore';
 import { ArrowRight, ShoppingCart, Trash2, MapPin, Phone, Mail, Clock, Minus, Plus } from 'lucide-react';
 
 // Home Page
@@ -815,4 +816,116 @@ export const ContactPage = () => {
 export const FAQsPage = () => {
   return (
     <Layout>
-      <div className="container mx-auto px
+      <div className="container mx-auto px-4 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h1 className="text-4xl font-serif font-medium mb-12 text-center">Frequently Asked Questions</h1>
+          
+          <div className="max-w-3xl mx-auto mb-16">
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">What are your opening hours?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  We're open from 7:00 AM to 7:00 PM Monday through Friday, and 8:00 AM to 6:00 PM on weekends.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-2" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">Do you offer delivery?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  Yes, we offer delivery within a 10-mile radius of our bakery for orders over $25. Please place your order at least 24 hours in advance.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-3" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">Can I order custom items?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  Absolutely! We take custom orders for special occasions. Please contact us at least 48 hours in advance for custom cakes and 24 hours for other baked goods.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-4" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">Do you cater events?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  Yes, we offer catering services for events of all sizes. Please contact us for a custom quote and menu options.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-5" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">Are your products suitable for people with allergies?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  We clearly label all our products with allergen information. For specific dietary requirements, please contact us directly for more information.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-6" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">Can I reserve items for pickup?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  Yes, you can reserve items for pickup. Please call us or use our online ordering system to place your reservation.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-7" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">Do you have gluten-free options?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  We offer a limited selection of gluten-free items. These are prepared in a kitchen that also handles gluten, so they may not be suitable for people with severe gluten allergies or celiac disease.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-8" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">How long do your products stay fresh?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  Our bread is best consumed within 2-3 days of purchase. Pastries are best enjoyed within 1-2 days. For optimal freshness, store bread in a paper bag at room temperature and pastries in an airtight container.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-9" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">What payment methods do you accept?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  We accept cash, all major credit cards, and mobile payment methods like Apple Pay and Google Pay.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-10" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium py-4">Do you offer wholesale pricing?</AccordionTrigger>
+                <AccordionContent className="pb-4 pt-2 text-muted-foreground">
+                  Yes, we offer wholesale pricing for restaurants, cafes, and other businesses. Please contact us directly to discuss wholesale options.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+          
+          <div className="max-w-xl mx-auto text-center">
+            <h2 className="text-2xl font-serif font-medium mb-4">Still have questions?</h2>
+            <p className="text-muted-foreground mb-8">
+              If you couldn't find the answer to your question, please don't hesitate to contact us directly.
+            </p>
+            <Button asChild size="lg">
+              <Link to="/contact">Contact Us</Link>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    </Layout>
+  );
+};
+
+// Not Found Page
+export const NotFound = () => {
+  return (
+    <Layout>
+      <div className="container mx-auto px-4 py-24 flex flex-col items-center">
+        <h1 className="text-6xl font-serif font-medium mb-6">404</h1>
+        <p className="text-xl text-muted-foreground mb-8">
+          The page you are looking for does not exist.
+        </p>
+        <Button asChild>
+          <Link to="/">Go Home</Link>
+        </Button>
+      </div>
+    </Layout>
+  );
+};
